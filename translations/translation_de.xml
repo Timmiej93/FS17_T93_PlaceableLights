@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>
+        Timmiej93
+    </translationContributors>
+    
+    <texts>
+    	<!-- Function text -->
+        <text name="function_lights" text="Dieser lampe kann irgendwo auf den Karte platziert werden, sogar in anderen Objekten. Funktion sind verfugbar in die nähe von jede Lampe."/>
+
+        <!-- Store text -->
+        <text name="shopItem_light1" text="Strassenlicht 1"/>
+        <text name="shopItem_light2" text="Strassenlicht 2"/>
+        <text name="shopItem_light3" text="Strassenlicht 3"/>
+        <text name="shopItem_wallLight1" text="Wandlicht 1"/>
+        <text name="shopItem_wallLight2" text="Wandlicht 2"/>
+
+        <!-- Inputsettings text -->
+        <text name="input_changeLightBehavior" text="T93 Plazierbare lichter pack: Verhalten der Lampe ändern"/>
+        <text name="input_changeStepSize" text="T93 Plazierbare lichter pack: Höhenverstellungsschrittgröße der Lampe ändern"/>
+        <text name="input_changeHeightF1" text="T93 Plazierbare lichter pack: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die Auf- und Ab-Taste ein."/>
+        <text name="input_changeLightColor" text="T93 Plazierbare lichter pack: Lichtfarbe ändern."/>
+        <text name="input_changeBrightnessUp" text="T93 Plazierbare lichter pack: Helligkeit des Lichts erhöhen."/>
+        <text name="input_changeBrightnessDown" text="T93 Plazierbare lichter pack: Helligkeit des Lichts verringern."/>
+        <text name="input_changeBrightnessF1" text="T93 Plazierbare lichter pack: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die erhöhungs- und verringerungs-Taste des Helligkeit ein."/>
+        <text name="input_changeHeightDown" text="T93 Plazierbare lichter pack: Verschiebe das Licht nach unten"/>
+        <text name="input_changeHeightUp" text="T93 Plazierbare lichter pack: Verschiebe das Licht nach oben"/>
+
+        <!-- In-game text -->
+        <text name="button_lightBehavior" text="Aktuelles Verhalten: %s"/>
+        <text name="button_lightBehavior_alwaysOn" text="Immer eingeschaltet"/>
+        <text name="button_lightBehavior_alwaysOff" text="Immer abgeschaltet"/>
+        <text name="button_lightBehavior_automatic" text="Automatisch"/>
+        <text name="button_height_changeStepSize" text="Schrittlänge: %s (%sm)"/>
+        <text name="button_height_changeStepSize_Coarse" text="Grob"/>
+        <text name="button_height_changeStepSize_Fine" text="Fein"/>
+        <text name="button_height_changeStepSize_UltraFine" text="Ultrafein"/>
+        <text name="button_changeHeight" text="Lampenhöhe erhöhen/verringern"/>
+        <text name="button_changeColor" text="Lichtart: %s"/>
+        <text name="button_changeColor_white" text="Normal"/>
+        <text name="button_changeColor_orange" text="Natrium"/>
+        <text name="button_changeBrightness" text="Helligkeit erhöhen/verringern"/>
+    </texts>
+</l10n>

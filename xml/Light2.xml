@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable>
+    <storeData>
+        <name>$l10n_shopItem_light2</name>
+        <image>storeImages/store_light2.png</image>
+        <price>500</price>
+        <dailyUpkeep>0.5</dailyUpkeep>
+        <functions>
+            <function>$l10n_function_lights</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>placeable</species>
+        <category>placeables</category>
+        <vertexBufferMemoryUsage>75120</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>16128</indexBufferMemoryUsage>
+        <textureMemoryUsage>9087800</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <placement testSizeX="0.1" testSizeZ="0.1" sizeX="0.1" sizeZ="0.1" useRandomYRotation="false" useManualYRotation="true" />
+
+    <tipOcclusionUpdateArea sizeX="0.1" sizeZ="0.1" />
+
+    <placeableType>placeableLights</placeableType>
+    <filename>i3d/Light2.i3d</filename>
+</placeable>

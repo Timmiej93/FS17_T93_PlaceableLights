@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="untitled" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="7.0.5"/>
+  </Asset>
+
+  <Files>
+    <File fileId="5" filename="../shaders/emissiveLightsShader.xml" relativePath="true"/>
+    <File fileId="6" filename="../shared/coronaOrange_diffuse.png" relativePath="true"/>
+    <File fileId="7" filename="../shared/coronaWhite_diffuse.png" relativePath="true"/>
+    <File fileId="1" filename="../textures/goldcrestValley/streetLamps_diffuse.png" relativePath="true"/>
+    <File fileId="2" filename="../textures/goldcrestValley/streetLamps_normal.png" relativePath="true"/>
+    <File fileId="3" filename="../textures/goldcrestValley/streetLamps_specular.png" relativePath="true"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="streetLampsLit_mat" materialId="10" ambientColor="1 1 1">
+      <Emissivemap fileId="1"/>
+    </Material>
+    <Material name="lampsLit_mat" materialId="9" ambientColor="1 1 1" emissiveColor="1 1 1 0.894118" alphaBlending="true" customShaderId="5" customShaderVariation="STATIC_LIGHT">
+      <CustomParameter name="blinkOffset" value="0 0 0 0"/>
+    </Material>
+    <Material name="coronaWhite_mat" materialId="12" ambientColor="1 1 1" alphaBlending="true" customShaderId="5" customShaderVariation="BILLBOARD">
+      <Emissivemap fileId="7"/>
+      <CustomParameter name="blinkOffset" value="0 0 0 0"/>
+    </Material>
+    <Material name="streetLamps_mat" materialId="11" ambientColor="1 1 1" cosPower="200" specularColor="1 1 1">
+      <Texture fileId="1"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+    </Material>
+    <Material name="01 - Default" materialId="6" diffuseColor="0.584314 0.584314 0.584314 1" ambientColor="0.588235 0.588235 0.588235">
+    </Material>
+    <Material name="coronaOrange_mat" materialId="8" ambientColor="1 1 1" alphaBlending="true" customShaderId="5" customShaderVariation="BILLBOARD">
+      <Emissivemap fileId="6"/>
+      <CustomParameter name="blinkOffset" value="0 0 0 0"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="Light2.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+    <Shape shapeId="1" name="light2" static="true" clipDistance="151" nodeId="19" materialIds="11" castsShadows="true" receiveShadows="true">
+      <TransformGroup name="lighting" clipDistance="129" nodeId="20">
+        <Shape shapeId="2" name="innerLight" translation="2.01545 8.74886 7.62939e-07" clipDistance="400" nodeId="21" materialIds="10" castsShadows="true" receiveShadows="true"/>
+        <Shape shapeId="3" name="lampLit" translation="2.0154 8.74461 0.00720123" clipDistance="129" nodeId="22" materialIds="9" castsShadows="true" receiveShadows="true"/>
+        <TransformGroup name="orange" visibility="false" nodeId="23">
+          <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="24" type="spot" color="1 0.45 0" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
+          <Shape shapeId="4" name="coronaOrange" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="25" materialIds="8"/>
+        </TransformGroup>
+        <TransformGroup name="white" nodeId="26">
+          <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="27" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
+          <Shape shapeId="4" name="coronaWhite" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="28" materialIds="12"/>
+        </TransformGroup>
+      </TransformGroup>
+      <Shape shapeId="5" name="PlayerTrigger" static="true" trigger="true" collisionMask="1048576" nodeId="29" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+    </Shape>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="19">
+      <Attribute name="lighting" type="string" value="0"/>
+      <Attribute name="lightingOrange" type="string" value="0>0|2"/>
+      <Attribute name="lightingWhite" type="string" value="0>0|3"/>
+      <Attribute name="playerTrigger" type="string" value="1"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>
