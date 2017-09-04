@@ -38,27 +38,15 @@ Als extra functie kunnen deze lampen overal geplaatst worden, zelfs in andere ob
     </extraSourceFiles>
 
     <inputBindings>
-        <!-- Individuals -->
-        <input name="changeLightColor" category="onfoot" key1="KEY_f"/>
-        <input name="changeLockState" category="onfoot" key1="KEY_lshift KEY_0"/>
         <input name="changeLightBehavior" category="onfoot" key1="KEY_e"/>
-
-        <!-- Height -->
         <input name="changeStepSize" category="onfoot" key1="KEY_lshift KEY_j"/>
         <input name="changeHeightUp" category="onfoot" key1="KEY_j"/>
         <input name="changeHeightDown" category="onfoot" key1="KEY_n"/>
         <input name="changeHeightF1" category="onfoot" key1="KEY_j KEY_n"/>
-
-        <!-- Brightness -->
+        <input name="changeLightColor" category="onfoot" key1="KEY_f"/>
         <input name="changeBrightnessUp" category="onfoot" key1="KEY_k"/>
         <input name="changeBrightnessDown" category="onfoot" key1="KEY_m"/>
         <input name="changeBrightnessF1" category="onfoot" key1="KEY_k KEY_m"/>
-
-        <!-- Rotation -->
-        <input name="changeRotationStepSize" category="onfoot" key1="KEY_lshift KEY_h"/>
-        <input name="changeRotationRight" category="onfoot" key1="KEY_h"/>
-        <input name="changeRotationLeft" category="onfoot" key1="KEY_b"/>
-        <input name="changeRotationF1" category="onfoot" key1="KEY_h KEY_b"/>
     </inputBindings>
 
     <l10n filenamePrefix="translations/translation"/>

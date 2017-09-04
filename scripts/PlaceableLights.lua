@@ -40,50 +40,24 @@ function PlaceableLights:load(xmlFilename, x,y,z, rx,ry,rz, initRandom)
     self.playerTrigger = Utils.indexToObject(self.nodeId, Utils.getNoNil(getUserAttribute(self.nodeId, "playerTrigger"), 1));
     self.playersInTrigger = false;
 
-    -- Height/rotation alterations
+    -- Height alterations
     self.alignmentGuide = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "alignmentGuide"));
-	self.raisableElement = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "variableHeight"));
-	self.rotateableElement = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "variableRotation"));
-
-    if self.xmlFile ~= 0 and self.xmlFile ~= nil then
-    	if self.alignmentGuide ~= nil and self.raisableElement then
-	    	local coarseHeight = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.height#coarseHeightChange"), 1);
-	    	local fineHeight = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.height#fineHeightChange"), 0.1);
-	    	local ultraFineHeight = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.height#ultraFineHeightChange"), 0.01);
-	    	
-	    	if coarseHeight == nil or fineHeight == nil or ultraFineHeight == nil then
-	    		print("ERROR: There was an issue with loading data from the XML file!")
-	    		return false;
-	    	else
-	    		self.adjustHeights = {};
-	    		self.adjustHeights[1] = {["height"] = coarseHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_Coarse")}
-	    		self.adjustHeights[2] = {["height"] = fineHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_Fine")}
-	    		self.adjustHeights[3] = {["height"] = ultraFineHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_UltraFine")}
-	    		self.activeHeight = 1;
-	    	end
-	    end
-
-    	if self.rotateableElement ~= nil then
-    		local rotationCoarse = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.rotation#coarse"), 22.5)
-	    	local rotationFine = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.rotation#fine"), 10);
-	    	local rotationUltraFine = Utils.getNoNil(getXMLFloat(self.xmlFile, "placeable.placeableLight.rotation#ultraFine"), 1);
-
-	    	if rotationCoarse == nil or rotationFine == nil or rotationUltraFine == nil then
-	    		print("ERROR: There was an issue with loading data from the XML file!")
-	    		return false;
-	    	else
-	    		self.adjustRotations = {};
-	    		self.adjustRotations[1] = {["rotation"] = rotationCoarse, ["text"] = g_i18n:getText("button_height_changeStepSize_Coarse")}
-	    		self.adjustRotations[2] = {["rotation"] = rotationFine, ["text"] = g_i18n:getText("button_height_changeStepSize_Fine")}
-	    		self.adjustRotations[3] = {["rotation"] = rotationUltraFine, ["text"] = g_i18n:getText("button_height_changeStepSize_UltraFine")}
-	    		self.activeRotation = 1;
-	    	end
-	    end
-	else
-		print("ERROR: There was an issue loading the XML file!")
+	self.raisableElement = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "variableHeight"))
+    
+    if self.xmlFile ~= 0 and self.xmlFile ~= nil and self.alignmentGuide ~= nil and self.raisableElement then
+    	local coarseHeight = getXMLFloat(self.xmlFile, "placeable.placeableLight#coarseHeightChange");
+    	local fineHeight = getXMLFloat(self.xmlFile, "placeable.placeableLight#fineHeightChange");
+    	local ultraFineHeight = getXMLFloat(self.xmlFile, "placeable.placeableLight#ultraFineHeightChange");
+    	if coarseHeight == nil or fineHeight == nil or ultraFineHeight == nil then
+    		print("ERROR: There was an issue with loading data from the XML file!")
+    	else
+    		self.adjustHeights = {};
+    		self.adjustHeights[1] = {["height"] = coarseHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_Coarse")}
+    		self.adjustHeights[2] = {["height"] = fineHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_Fine")}
+    		self.adjustHeights[3] = {["height"] = ultraFineHeight, ["text"] = g_i18n:getText("button_height_changeStepSize_UltraFine")}
+    		self.activeHeight = 1;
+    	end
     end
-
-
 
     -- Color variations
     local whiteLight = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "lightingWhite"));
@@ -105,12 +79,6 @@ function PlaceableLights:load(xmlFilename, x,y,z, rx,ry,rz, initRandom)
     if PlaceableLightsManager.ghost == nil and g_gui.currentGui == (g_gui.guis.PlacementScreen or g_gui.guis.ShopScreen) then
         PlaceableLightsManager.ghost = self;
     end
-
-    self.locked = false;
-    self.lockStates = {
-    	[true] = {["text"] = g_i18n:getText("button_lockState_locked")},
-    	[false] = {["text"] = g_i18n:getText("button_lockState_unlocked")}
-	}
 
     return true;
 end
@@ -233,16 +201,6 @@ function PlaceableLights:update(dt)
             self.chatDialogOpen = false;
         end
 
-        local lockStateText = self.lockStates[self.locked].text;
-        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeLockState"), lockStateText), InputBinding.changeLockState);
-        if InputBinding.hasEvent(InputBinding.changeLockState) then
-        	self.locked = not self.locked;
-        end
-
-        if self.locked then
-        	return;
-        end
-
     	-- Change light behavior
         g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_lightBehavior"), self.lightStates[self.currentLightState]), InputBinding.changeLightBehavior);
         if InputBinding.hasEvent(InputBinding.changeLightBehavior) and not self.chatDialogOpen then
@@ -257,69 +215,41 @@ function PlaceableLights:update(dt)
             PlaceableLightsEvent.sendEvent(self);
         end
 
-        if self.rotateableElement ~= nil and self.adjustRotations ~= nil then
-
-	        -- Change light rotation increment
-	        local parenthesisTextRotation = self.adjustRotations[self.activeRotation].text;
-	        local rotation = string.format("%.1f", self.adjustRotations[self.activeRotation].rotation);
-	        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_rotation_changeStepSize"), parenthesisTextRotation, rotation), InputBinding.changeRotationStepSize);
-	    	if InputBinding.hasEvent(InputBinding.changeRotationStepSize) then
-	    	    self.activeRotation = self.activeRotation + 1;
-                if self.activeRotation > table.getn(self.adjustRotations) then
-                    self.activeRotation = 1;
-                end
-                PlaceableLightsEvent.sendEvent(self);
-	        end
-
-	        -- Change lamp rotation
-	        g_currentMission:addHelpButtonText(g_i18n:getText("button_changeRotation"), InputBinding.changeRotationF1);
-	        -- Change lamp rtation right/left
-	        if InputBinding.hasEvent(InputBinding.changeRotationRight) and not self.chatDialogOpen then
-	            local _,ry,_ = getRotation(self.rotateableElement);
-	            local dry = math.rad(self.adjustRotations[self.activeRotation].rotation)
-	            ry = Utils.clamp(((ry-dry)%math.rad(360)), 0, 360)
-	            setRotation(self.rotateableElement, 0,ry,0);
-	            PlaceableLightsEvent.sendEvent(self);
-	        elseif InputBinding.hasEvent(InputBinding.changeRotationLeft) and not self.chatDialogOpen then
-	            local _,ry,_ = getRotation(self.rotateableElement);
-	            local dry = math.rad(self.adjustRotations[self.activeRotation].rotation)
-	            ry = Utils.clamp(((ry+dry)%math.rad(360)), 0, 360)
-	            setRotation(self.rotateableElement, 0,ry,0);
-	            PlaceableLightsEvent.sendEvent(self);
-	        end
-	    end
-
         if self.alignmentGuide ~= nil and self.raisableElement ~= nil and self.adjustHeights ~= nil then
+            if self.alignmentGuide ~= nil and self.raisableElement ~= nil and self.adjustHeights ~= nil then
 
-            -- Change lamp height increment
-            local parenthesisText = self.adjustHeights[self.activeHeight].text;
-            local height = string.format("%.2f", self.adjustHeights[self.activeHeight].height);
-            g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_height_changeStepSize"), parenthesisText, height), InputBinding.changeStepSize);
-            if InputBinding.hasEvent(InputBinding.changeStepSize) and not self.chatDialogOpen then
-                self.activeHeight = self.activeHeight + 1;
-                if self.activeHeight > table.getn(self.adjustHeights) then
-                    self.activeHeight = 1;
+                -- Change lamp height increment
+                local parenthesisText = self.adjustHeights[self.activeHeight].text;
+                local height = string.format("%.2f", self.adjustHeights[self.activeHeight].height);
+                g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_height_changeStepSize"), parenthesisText, height), InputBinding.changeStepSize);
+                
+                if InputBinding.hasEvent(InputBinding.changeStepSize) and not self.chatDialogOpen then
+                    self.activeHeight = self.activeHeight + 1;
+                    if self.activeHeight > table.getn(self.adjustHeights) then
+                        self.activeHeight = 1;
+                    end
+                    PlaceableLightsEvent.sendEvent(self);
                 end
-                PlaceableLightsEvent.sendEvent(self);
-            end
 
-            -- Change lamp height
-            g_currentMission:addHelpButtonText(g_i18n:getText("button_changeHeight"), InputBinding.changeHeightF1);
-            -- Change lamp height up/down
-            if InputBinding.hasEvent(InputBinding.changeHeightDown) and not self.chatDialogOpen then
-                local _,y,_ = getTranslation(self.raisableElement);
-                local dy = self.adjustHeights[self.activeHeight].height;
-                y = Utils.clamp(y-dy, -10, 50);
-                PlaceableLightsManager.currentGhostHeight = y;
-                setTranslation(self.raisableElement, 0,y,0);
-                PlaceableLightsEvent.sendEvent(self);
-            elseif InputBinding.hasEvent(InputBinding.changeHeightUp) and not self.chatDialogOpen then
-                local _,y,_ = getTranslation(self.raisableElement);
-                local dy = self.adjustHeights[self.activeHeight].height;
-                y = Utils.clamp(y+dy, -10, 50)
-                PlaceableLightsManager.currentGhostHeight = y;
-                setTranslation(self.raisableElement, 0,y,0);
-                PlaceableLightsEvent.sendEvent(self);
+                -- Change lamp height
+                g_currentMission:addHelpButtonText(g_i18n:getText("button_changeHeight"), InputBinding.changeHeightF1);
+
+                -- Change lamp height up/down
+                if InputBinding.hasEvent(InputBinding.changeHeightDown) and not self.chatDialogOpen then
+                    local x,y,z = getTranslation(self.raisableElement);
+                    local dy = self.adjustHeights[self.activeHeight].height;
+                    y = Utils.clamp(y-dy, -10, 50);
+                    PlaceableLightsManager.currentGhostHeight = y;
+                    setTranslation(self.raisableElement, x,y,z);
+                    PlaceableLightsEvent.sendEvent(self);
+                elseif InputBinding.hasEvent(InputBinding.changeHeightUp) and not self.chatDialogOpen then
+                    local x,y,z = getTranslation(self.raisableElement);
+                    local dy = self.adjustHeights[self.activeHeight].height;
+                    y = Utils.clamp(y+dy, -10, 50)
+                    PlaceableLightsManager.currentGhostHeight = y;
+                    setTranslation(self.raisableElement, x,y,z);
+                    PlaceableLightsEvent.sendEvent(self);
+                end
             end
 	    end
 
@@ -366,7 +296,7 @@ function PlaceableLights:update(dt)
 end;
 
 function PlaceableLights:PlayerTriggerCallback(triggerId, otherId, onEnter, onLeave, onStay)
-	if (g_currentMission.player and otherId == g_currentMission.player.rootNode) then
+	if (g_currentMission.controlPlayer and g_currentMission.player and otherId == g_currentMission.player.rootNode) then
 	    if onEnter then
 	        self.playersInTrigger = true;
 	    elseif onLeave then
@@ -384,16 +314,10 @@ function PlaceableLights:getSaveAttributesAndNodes(nodeIdent)
 			                        "\" currentBrightness=\""..self.currentBrightness
 
     if self.raisableElement ~= nil and self.activeHeight ~= nil then
-    	local _,y,_ = getTranslation(self.raisableElement);
+    	local x,y,z = getTranslation(self.raisableElement);
     	nodes = nodes..			"\" activeHeight=\""..self.activeHeight..
-								"\" height=\""..y
+								"\" height=\""..x.." "..y.." "..z
     end
-
-    if self.rotateableElement ~= nil and self.activeRotation ~= nil then
-    	local _,rY,_ = getRotation(self.rotateableElement);
-    	nodes = nodes..			"\" activeRotation=\""..self.activeRotation..
-    							"\" rotation=\""..rY
-	end
 
     nodes = nodes..             "\"/>"
 
@@ -416,8 +340,7 @@ function PlaceableLights:loadFromAttributesAndNodes(xmlFile, key, resetVehicles)
     local lightColor = getXMLInt(xmlFile, key..".lightData(0)#activeLightColor");
     local brightness = getXMLInt(xmlFile, key..".lightData(0)#currentBrightness");
     local activeHeight = getXMLInt(xmlFile, key..".lightData(0)#activeHeight");
-    local yRaised = getXMLFloat(xmlFile, key..".lightData(0)#height");
-    local yRotated = getXMLFloat(xmlFile, key..".lightData(0)#rotation");
+    local xRaised, yRaised, zRaised = Utils.getVectorFromString(getXMLString(xmlFile, key..".lightData(0)#height"))
 
     if self:load(xmlFilename, x,y,z, xRot, yRot, zRot, false, false) then
         self.age = Utils.getNoNil(getXMLFloat(xmlFile, key.."#age"), 0);
@@ -428,12 +351,7 @@ function PlaceableLights:loadFromAttributesAndNodes(xmlFile, key, resetVehicles)
         self.currentBrightness = Utils.getNoNil(brightness, self.currentBrightness);
         self.activeHeight = activeHeight; -- Can be nil, for lights without height adjustment
         if self.raisableElement ~= nil then
-            yRaised = Utils.getNoNil(yRaised, 0)
-        	setTranslation(self.raisableElement, 0,yRaised,0);
-        end
-        if self.rotateableElement ~= nil then
-            yRotated = Utils.getNoNil(yRotated, 0)
-        	setRotation(self.rotateableElement, 0,yRotated,0)
+        	setTranslation(self.raisableElement, xRaised, yRaised, zRaised);
         end
         self:finalizePlacement();
 
@@ -446,42 +364,47 @@ end;
 function PlaceableLights:readStream(streamId, connection)
 	PlaceableLights:superClass().readStream(self, streamId, connection);
     
- --    if connection:getIsServer() then
-	--     self.currentLightState = streamReadInt8(streamId)
-	--     self.activeLightColor = streamReadInt8(streamId)
-	--     self.currentBrightness = streamReadInt8(streamId)
+    if connection:getIsServer() then
+	    self.currentLightState = streamReadInt8(streamId)
+	    self.activeLightColor = streamReadInt8(streamId)
+	    self.currentBrightness = streamReadInt8(streamId)
 
-	--     local hasRaisable = streamReadBool(streamId);
-	--     if hasRaisable then
-	-- 	    self.activeHeight = streamReadInt8(streamId)
+	    local hasRaisable = streamReadBool(streamId);
 
-	-- 	    local y = streamReadFloat32(streamId)
-	-- 	    if self.raisableElement ~= nil and y~=nil then
-	-- 	    	setTranslation(self.raisableElement, 0,y,0);
-	-- 	    end
-	-- 	end
-	-- end
+	    if hasRaisable then
+		    self.activeHeight = streamReadInt8(streamId)
+
+		    local x,y,z;
+		    x = streamReadFloat32(streamId)
+		    y = streamReadFloat32(streamId)
+		    z = streamReadFloat32(streamId)
+		    if self.raisableElement ~= nil and x~=nil and y~=nil and z~=nil then
+		    	setTranslation(self.raisableElement, x,y,z);
+		    end
+		end
+	end
 end
 
 function PlaceableLights:writeStream(streamId, connection)
     PlaceableLights:superClass().writeStream(self, streamId, connection);
 
-    PlaceableLightsEvent.sendEvent(self);
+	if not connection:getIsServer() then
+	    streamWriteInt8(streamId, self.currentLightState);
+	    streamWriteInt8(streamId, self.activeLightColor);
+	    streamWriteInt8(streamId, self.currentBrightness);
 
-	-- if not connection:getIsServer() then
-	--     streamWriteInt8(streamId, self.currentLightState);
-	--     streamWriteInt8(streamId, self.activeLightColor);
-	--     streamWriteInt8(streamId, self.currentBrightness);
+	    local hasRaisable = (self.activeHeight ~= nil and self.raisableElement ~= nil);
+	    streamWriteBool(streamId, hasRaisable)
 
-	--     local hasRaisable = (self.activeHeight ~= nil and self.raisableElement ~= nil);
-	--     streamWriteBool(streamId, hasRaisable)
-	--     if hasRaisable then
-	-- 	    streamWriteInt8(streamId, self.activeHeight);
+	    if hasRaisable then
+		    streamWriteInt8(streamId, self.activeHeight);
 
-	-- 	    local _,y,_ = getTranslation(self.raisableElement)
-	-- 	    streamWriteFloat32(streamId, y)
-	-- 	end
-	-- end
+		    local x,y,z = getTranslation(self.raisableElement)
+		    streamWriteFloat32(streamId, x)
+		    streamWriteFloat32(streamId, y)
+		    streamWriteFloat32(streamId, z)
+		end
+	end
 end
 
 function PlaceableLightsManager:deleteMap()end;
@@ -514,11 +437,7 @@ function PlaceableLightsEvent:new(lamp)
     self.activeHeight = lamp.activeHeight
 
     if lamp.raisableElement ~= nil then
-        _,self.y,_ = getTranslation(lamp.raisableElement);
-    end
-
-    if lamp.rotateableElement ~= nil then
-    	_,self.rY,_ = getRotation(lamp.rotateableElement);
+        self.x, self.y, self.z = getTranslation(lamp.raisableElement);
     end
 
     return self;
@@ -532,8 +451,9 @@ function PlaceableLightsEvent:writeStream(streamId, connection)
     streamWriteInt8(streamId, self.currentBrightness);
     streamWriteInt8(streamId, self.activeHeight);
 
+    streamWriteFloat32(streamId, self.x)
     streamWriteFloat32(streamId, self.y)
-    streamWriteFloat32(streamId, self.rY)
+    streamWriteFloat32(streamId, self.z)
 end
 
 function PlaceableLightsEvent:readStream(streamId, connection)
@@ -544,8 +464,9 @@ function PlaceableLightsEvent:readStream(streamId, connection)
     self.currentBrightness = streamReadInt8(streamId)
     self.activeHeight = streamReadInt8(streamId)
 
+    self.x = streamReadFloat32(streamId)
     self.y = streamReadFloat32(streamId)
-    self.rY = streamReadFloat32(streamId)
+    self.z = streamReadFloat32(streamId)
     self:run(connection);
 end
 
@@ -556,20 +477,12 @@ function PlaceableLightsEvent:run(connection)
     if self.lamp ~= nil then
         self.lamp:setLightState();
         self.lamp:setLightColor();
-
         if self.lamp.lightColors ~= nil then
             for _,light in pairs(self.lamp.lightColors) do
                 setLightRange(light.lightSource, self.lamp.currentBrightness)
             end
         end
-
-        if self.y ~= nil then
-        	setTranslation(self.lamp.raisableElement, 0,self.y,0);
-        end
-
-        if self.rY ~= nil then
-        	setRotation(self.lamp.rotateableElement, 0,self.rY, 0);
-        end
+        setTranslation(self.lamp.raisableElement, self.x,self.y,self.z);
     end
 end
 

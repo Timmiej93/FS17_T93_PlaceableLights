@@ -6,66 +6,39 @@
     
     <texts>
         <!-- Function text -->
-            <text name="function_lights" text="Deze lamp kan overal in de wereld geplaatst worden, zelfs in andere objecten. Functies zijn beschikbaar in de buurt van iedere lamp."/>
+        <text name="function_lights" text="Deze lamp kan overal in de wereld geplaatst worden, zelfs in andere objecten. Functies zijn beschikbaar in de buurt van iedere lamp."/>
 
         <!-- Store text -->
-            <text name="shopItem_light1" text="Lantaarnpaal 1"/>
-            <text name="shopItem_light2" text="Lantaarnpaal 2"/>
-            <text name="shopItem_light3" text="Lantaarnpaal 3"/>
-            <text name="shopItem_wallLight1" text="Muurlamp 1"/>
-            <text name="shopItem_wallLight2" text="Muurlamp 2"/>
+        <text name="shopItem_light1" text="Lantaarnpaal 1"/>
+        <text name="shopItem_light2" text="Lantaarnpaal 2"/>
+        <text name="shopItem_light3" text="Lantaarnpaal 3"/>
+        <text name="shopItem_wallLight1" text="Muurlamp 1"/>
+        <text name="shopItem_wallLight2" text="Muurlamp 2"/>
 
         <!-- Inputsettings text -->
-            <!-- Individuals -->
-            <text name="input_changeLightBehavior" text="T93 Plaatsbare lampen pakket: Gedrag van de lamp aanpassen"/>
-            <text name="input_changeLightColor" text="T93 Plaatsbare lampen pakket: Kleur van het licht veranderen."/>
-            <text name="input_changeLockState" text="T93 Plaatsbare lampen pakket: Vergrendelingsstaat veranderen."/>
-
-            <!-- Height -->
-            <text name="input_changeStepSize" text="T93 Plaatsbare lampen pakket: Hoogteverstellings stapgrootte van de lamp aanpassen"/>
-            <text name="input_changeHeightUp" text="T93 Plaatsbare lampen pakket: Lamp naar boven verplaatsen"/>
-            <text name="input_changeHeightDown" text="T93 Plaatsbare lampen pakket: Lamp naar beneden verplaatsen"/>
-            <text name="input_changeHeightF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de omhoog als omlaag knop in."/>
-
-            <!-- Brightness -->
-            <text name="input_changeBrightnessUp" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verhogen."/>
-            <text name="input_changeBrightnessDown" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verlagen."/>
-            <text name="input_changeBrightnessF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de verhoog- en verlaag-knop voor de helderheid in."/>
-
-            <!-- Rotation -->
-            <text name="input_changeRotationRight" text="T93 Plaatsbare lampen pakket: Naar rechts roteren."/>
-            <text name="input_changeRotationLeft" text="T93 Plaatsbare lampen pakket: Naar links roteren."/>
-            <text name="input_changeRotationF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel naar links als naar rechts roteren in."/>
+        <text name="input_changeLightBehavior" text="T93 Plaatsbare lampen pakket: Gedrag van de lamp aanpassen"/>
+        <text name="input_changeStepSize" text="T93 Plaatsbare lampen pakket: Hoogteverstellings stapgrootte van de lamp aanpassen"/>
+        <text name="input_changeHeightUp" text="T93 Plaatsbare lampen pakket: Lamp naar boven verplaatsen"/>
+        <text name="input_changeHeightDown" text="T93 Plaatsbare lampen pakket: Lamp naar beneden verplaatsen"/>
+        <text name="input_changeHeightF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de omhoog als omlaag knop in."/>
+        <text name="input_changeLightColor" text="T93 Plaatsbare lampen pakket: Kleur van het licht veranderen."/>
+        <text name="input_changeBrightnessUp" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verhogen."/>
+        <text name="input_changeBrightnessDown" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verlagen."/>
+        <text name="input_changeBrightnessF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de verhoog- en verlaag-knop voor de helderheid in."/>
 
         <!-- In-game text -->
-            <!-- Individual -->
-            <text name="button_changeBrightness" text="Helderheid vergroten/verkleinen"/>
-
-            <!-- Behavior -->
-            <text name="button_lightBehavior" text="Huidig gedrag: %s"/>
-            <text name="button_lightBehavior_alwaysOn" text="Altijd aan"/>
-            <text name="button_lightBehavior_alwaysOff" text="Altijd uit"/>
-            <text name="button_lightBehavior_automatic" text="Automatisch"/>
-
-            <!-- Height -->
-            <text name="button_changeHeight" text="Lamp naar boven/beneden verplaatsen"/>
-            <text name="button_height_changeStepSize" text="Stapgrootte: %s (%sm)"/>
-            <text name="button_height_changeStepSize_Coarse" text="Grof"/>
-            <text name="button_height_changeStepSize_Fine" text="Fijn"/>
-            <text name="button_height_changeStepSize_UltraFine" text="Ultra fijn"/>
-
-            <!-- Color -->
-            <text name="button_changeColor" text="Type lamp: %s"/>
-            <text name="button_changeColor_white" text="Normaal"/>
-            <text name="button_changeColor_orange" text="Natrium"/>
-
-            <!-- Rotation -->
-            <text name="button_changeRotation" text="Lamp naar rechts/links roteren"/>
-            <text name="button_rotation_changeStepSize" text="Stapgrootte: %s (%s°)"/>
-
-            <!-- LockState -->
-            <text name="button_changeLockState" text="Lamp vergrendelingsstaat: %s"/>
-            <text name="button_lockState_locked" text="Vergrendeld"/>
-            <text name="button_lockState_unlocked" text="Ontgrendeld"/>
+        <text name="button_lightBehavior" text="Huidig gedrag: %s"/>
+        <text name="button_lightBehavior_alwaysOn" text="Altijd aan"/>
+        <text name="button_lightBehavior_alwaysOff" text="Altijd uit"/>
+        <text name="button_lightBehavior_automatic" text="Automatisch"/>
+        <text name="button_height_changeStepSize" text="Stapgrootte: %s (%sm)"/>
+        <text name="button_height_changeStepSize_Coarse" text="Grof"/>
+        <text name="button_height_changeStepSize_Fine" text="Fijn"/>
+        <text name="button_height_changeStepSize_UltraFine" text="Ultra fijn"/>
+        <text name="button_changeHeight" text="Lamp hoogte vergroten/verkleinen"/>
+        <text name="button_changeColor" text="Type lamp: %s"/>
+        <text name="button_changeColor_white" text="Normaal"/>
+        <text name="button_changeColor_orange" text="Natrium"/>
+        <text name="button_changeBrightness" text="Helderheid vergroten/verkleinen"/>
     </texts>
 </l10n>
