@@ -22,7 +22,10 @@ function PlaceableLights:load(xmlFilename, x,y,z, rx,ry,rz, initRandom)
     if self.xmlFile == 0 or self.xmlFile == nil then
     	print("XML file not found!")
     end
-    
+
+    -- Priority
+    self.priorities = {};
+
     -- Two second timer
     self.timer2sec = 0;
     self.timer2secActive = false;
@@ -38,7 +41,7 @@ function PlaceableLights:load(xmlFilename, x,y,z, rx,ry,rz, initRandom)
 
     -- Trigger
     self.playerTrigger = Utils.indexToObject(self.nodeId, Utils.getNoNil(getUserAttribute(self.nodeId, "playerTrigger"), 1));
-    self.playersInTrigger = false;
+    self.playerInTrigger = false;
 
     -- Height/rotation alterations
     self.alignmentGuide = Utils.indexToObject(self.nodeId, getUserAttribute(self.nodeId, "alignmentGuide"));
@@ -106,7 +109,7 @@ function PlaceableLights:load(xmlFilename, x,y,z, rx,ry,rz, initRandom)
         PlaceableLightsManager.ghost = self;
     end
 
-    self.locked = false;
+    self.locked = true;
     self.lockStates = {
     	[true] = {["text"] = g_i18n:getText("button_lockState_locked")},
     	[false] = {["text"] = g_i18n:getText("button_lockState_unlocked")}
@@ -208,6 +211,22 @@ function PlaceableLights:setLightColor()
 end
 
 function PlaceableLights:update(dt)
+    local function getPriority(basePrio)
+        if type(basePrio) ~= "number" then
+            print("prio not a number!")
+            return
+        end
+
+        if self.priorities[basePrio] == nil then
+            self.priorities[basePrio] = {}
+        end
+
+        table.insert(self.priorities[basePrio], true)
+        return basePrio + (#(self.priorities[basePrio])/1000)
+    end
+
+
+
     -- Two second timer
     if self.timer2secActive then
         if self.timer2sec < 2000 then
@@ -226,15 +245,16 @@ function PlaceableLights:update(dt)
     end
 
     -- When player is in trigger
-    if self.playersInTrigger then
+    if self.playerInTrigger then
         if g_gui.currentGui ~= nil then
             self.chatDialogOpen = (g_gui.currentGui.name == "ChatDialog");
         else
             self.chatDialogOpen = false;
         end
 
+        -- Change light lock state
         local lockStateText = self.lockStates[self.locked].text;
-        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeLockState"), lockStateText), InputBinding.changeLockState);
+        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeLockState"), lockStateText), InputBinding.changeLockState, nil, getPriority(0));
         if InputBinding.hasEvent(InputBinding.changeLockState) then
         	self.locked = not self.locked;
         end
@@ -243,37 +263,10 @@ function PlaceableLights:update(dt)
         	return;
         end
 
-    	-- Change light behavior
-        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_lightBehavior"), self.lightStates[self.currentLightState]), InputBinding.changeLightBehavior);
-        if InputBinding.hasEvent(InputBinding.changeLightBehavior) and not self.chatDialogOpen then
-            self.currentLightState = self.currentLightState + 1;
-            if self.currentLightState > #(self.lightStates) then
-                self.currentLightState = 1;
-            end
-
-            if not self.timer2secActive then
-                self:setLightState();
-            end
-            PlaceableLightsEvent.sendEvent(self);
-        end
-
         if self.rotateableElement ~= nil and self.adjustRotations ~= nil then
 
-	        -- Change light rotation increment
-	        local parenthesisTextRotation = self.adjustRotations[self.activeRotation].text;
-	        local rotation = string.format("%.1f", self.adjustRotations[self.activeRotation].rotation);
-	        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_rotation_changeStepSize"), parenthesisTextRotation, rotation), InputBinding.changeRotationStepSize);
-	    	if InputBinding.hasEvent(InputBinding.changeRotationStepSize) then
-	    	    self.activeRotation = self.activeRotation + 1;
-                if self.activeRotation > table.getn(self.adjustRotations) then
-                    self.activeRotation = 1;
-                end
-                PlaceableLightsEvent.sendEvent(self);
-	        end
-
-	        -- Change lamp rotation
-	        g_currentMission:addHelpButtonText(g_i18n:getText("button_changeRotation"), InputBinding.changeRotationF1);
-	        -- Change lamp rtation right/left
+	        -- -- Change lamp rotation
+	        g_currentMission:addHelpButtonText(g_i18n:getText("button_changeRotation"), InputBinding.changeRotationF1, nil, getPriority(0));
 	        if InputBinding.hasEvent(InputBinding.changeRotationRight) and not self.chatDialogOpen then
 	            local _,ry,_ = getRotation(self.rotateableElement);
 	            local dry = math.rad(self.adjustRotations[self.activeRotation].rotation)
@@ -287,25 +280,24 @@ function PlaceableLights:update(dt)
 	            setRotation(self.rotateableElement, 0,ry,0);
 	            PlaceableLightsEvent.sendEvent(self);
 	        end
+	        
+	        -- -- Change light rotation increment
+	        local parenthesisTextRotation = self.adjustRotations[self.activeRotation].text;
+	        local rotation = string.format("%.1f", self.adjustRotations[self.activeRotation].rotation);
+	        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_rotation_changeStepSize"), parenthesisTextRotation, rotation), InputBinding.changeRotationStepSize, nil, getPriority(0));
+	    	if InputBinding.hasEvent(InputBinding.changeRotationStepSize) then
+	    	    self.activeRotation = self.activeRotation + 1;
+                if self.activeRotation > table.getn(self.adjustRotations) then
+                    self.activeRotation = 1;
+                end
+                PlaceableLightsEvent.sendEvent(self);
+	        end
 	    end
 
         if self.alignmentGuide ~= nil and self.raisableElement ~= nil and self.adjustHeights ~= nil then
 
-            -- Change lamp height increment
-            local parenthesisText = self.adjustHeights[self.activeHeight].text;
-            local height = string.format("%.2f", self.adjustHeights[self.activeHeight].height);
-            g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_height_changeStepSize"), parenthesisText, height), InputBinding.changeStepSize);
-            if InputBinding.hasEvent(InputBinding.changeStepSize) and not self.chatDialogOpen then
-                self.activeHeight = self.activeHeight + 1;
-                if self.activeHeight > table.getn(self.adjustHeights) then
-                    self.activeHeight = 1;
-                end
-                PlaceableLightsEvent.sendEvent(self);
-            end
-
-            -- Change lamp height
-            g_currentMission:addHelpButtonText(g_i18n:getText("button_changeHeight"), InputBinding.changeHeightF1);
-            -- Change lamp height up/down
+            -- -- Change lamp height
+            g_currentMission:addHelpButtonText(g_i18n:getText("button_changeHeight"), InputBinding.changeHeightF1, nil, getPriority(0));
             if InputBinding.hasEvent(InputBinding.changeHeightDown) and not self.chatDialogOpen then
                 local _,y,_ = getTranslation(self.raisableElement);
                 local dy = self.adjustHeights[self.activeHeight].height;
@@ -321,7 +313,33 @@ function PlaceableLights:update(dt)
                 setTranslation(self.raisableElement, 0,y,0);
                 PlaceableLightsEvent.sendEvent(self);
             end
+
+            -- -- Change lamp height increment
+            local parenthesisText = self.adjustHeights[self.activeHeight].text;
+            local height = string.format("%.2f", self.adjustHeights[self.activeHeight].height);
+            g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_height_changeStepSize"), parenthesisText, height), InputBinding.changeStepSize, nil, getPriority(0));
+            if InputBinding.hasEvent(InputBinding.changeStepSize) and not self.chatDialogOpen then
+                self.activeHeight = self.activeHeight + 1;
+                if self.activeHeight > table.getn(self.adjustHeights) then
+                    self.activeHeight = 1;
+                end
+                PlaceableLightsEvent.sendEvent(self);
+            end
 	    end
+
+    	-- Change light behavior
+        g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_lightBehavior"), self.lightStates[self.currentLightState]), InputBinding.changeLightBehavior, nil, getPriority(0));
+        if InputBinding.hasEvent(InputBinding.changeLightBehavior) and not self.chatDialogOpen then
+            self.currentLightState = self.currentLightState + 1;
+            if self.currentLightState > #(self.lightStates) then
+                self.currentLightState = 1;
+            end
+
+            if not self.timer2secActive then
+                self:setLightState();
+            end
+            PlaceableLightsEvent.sendEvent(self);
+        end
 
         if self.lightColors ~= nil then
 
@@ -329,7 +347,7 @@ function PlaceableLights:update(dt)
         	if self.activeLightColor ~= nil then
 		    	if self.lightColors ~= nil and self.lightColors[self.activeLightColor] ~= nil then
     		    	local text = Utils.getNoNil(self.lightColors[self.activeLightColor].text, "ERROR");
-            		g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeColor"), text), InputBinding.changeLightColor);
+                    g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeColor"), text), InputBinding.changeLightColor, nil, getPriority(0));
     				if InputBinding.hasEvent(InputBinding.changeLightColor) and not self.chatDialogOpen then
 						self.activeLightColor = self.activeLightColor + 1;
 					    if self.activeLightColor > #(self.lightColors) then
@@ -344,7 +362,7 @@ function PlaceableLights:update(dt)
             -- Change lamp brightness
             if self.currentBrightness ~= nil then
 	            local minLevel, maxLevel = 1, 50;
-	            g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeBrightness"), Utils.getNoNil(self.currentBrightness, 0)), InputBinding.changeBrightnessF1);
+	            g_currentMission:addHelpButtonText(string.format(g_i18n:getText("button_changeBrightness"), Utils.getNoNil(self.currentBrightness, 0)), InputBinding.changeBrightnessF1, nil, getPriority(0));
 	            if InputBinding.hasEvent(InputBinding.changeBrightnessUp) and not self.chatDialogOpen then
                     self.currentBrightness = Utils.clamp(self.currentBrightness + 1, minLevel, maxLevel)
 	                for _,light in pairs(self.lightColors) do
@@ -362,15 +380,16 @@ function PlaceableLights:update(dt)
 	            end
 	        end
         end
+        self.priorities = {};
     end
 end;
 
 function PlaceableLights:PlayerTriggerCallback(triggerId, otherId, onEnter, onLeave, onStay)
 	if (g_currentMission.player and otherId == g_currentMission.player.rootNode) then
 	    if onEnter then
-	        self.playersInTrigger = true;
+	        self.playerInTrigger = true;
 	    elseif onLeave then
-	        self.playersInTrigger = false;
+	        self.playerInTrigger = false;
 	    end
     end
 end
@@ -379,7 +398,8 @@ end
 -- LOAD/SAVE
 function PlaceableLights:getSaveAttributesAndNodes(nodeIdent)
     local attributes, nodes = PlaceableLights:superClass().getSaveAttributesAndNodes(self, nodeIdent);
-    nodes = nodes..nodeIdent..	"<lightData currentLightState=\""..self.currentLightState..
+    nodes = nodes..nodeIdent..	"<lightData locked=\""..tostring(self.locked)..
+                                    "\" currentLightState=\""..self.currentLightState..
 			    					"\" activeLightColor=\""..self.activeLightColor..
 			                        "\" currentBrightness=\""..self.currentBrightness
 
@@ -412,6 +432,7 @@ function PlaceableLights:loadFromAttributesAndNodes(xmlFile, key, resetVehicles)
     end;
     xmlFilename = Utils.convertFromNetworkFilename(xmlFilename);
     
+    local locked = getXMLBool(xmlFile, key..".lightData(0)#locked");
     local lightState = getXMLInt(xmlFile, key..".lightData(0)#currentLightState");
     local lightColor = getXMLInt(xmlFile, key..".lightData(0)#activeLightColor");
     local brightness = getXMLInt(xmlFile, key..".lightData(0)#currentBrightness");
@@ -423,6 +444,7 @@ function PlaceableLights:loadFromAttributesAndNodes(xmlFile, key, resetVehicles)
         self.age = Utils.getNoNil(getXMLFloat(xmlFile, key.."#age"), 0);
         self.price = Utils.getNoNil(getXMLInt(xmlFile, key.."#price"), self.price);
         self.isLoadedFromSavegame = true;
+        self.locked = Utils.getNoNil(locked, self.locked);
         self.currentLightState = Utils.getNoNil(lightState, self.currentLightState);
         self.activeLightColor = Utils.getNoNil(lightColor, self.activeLightColor);
         self.currentBrightness = Utils.getNoNil(brightness, self.currentBrightness);
@@ -484,11 +506,11 @@ function PlaceableLights:writeStream(streamId, connection)
 	-- end
 end
 
-function PlaceableLightsManager:deleteMap()end;
-function PlaceableLightsManager:mouseEvent(posX, posY, isDown, isUp, button)end;
-function PlaceableLightsManager:keyEvent(unicode, sym, modifier, isDown)end;
-function PlaceableLightsManager:update(dt)end;
-function PlaceableLightsManager:draw()end;
+-- function PlaceableLightsManager:deleteMap()end;
+-- function PlaceableLightsManager:mouseEvent(posX, posY, isDown, isUp, button)end;
+-- function PlaceableLightsManager:keyEvent(unicode, sym, modifier, isDown)end;
+-- function PlaceableLightsManager:update(dt)end;
+-- function PlaceableLightsManager:draw()end;
 
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- Events

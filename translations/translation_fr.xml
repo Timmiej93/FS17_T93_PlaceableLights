@@ -54,7 +54,7 @@ If you can help translate it, feel free to contribute on GitHub.
 
             <!-- Height -->
             <text name="button_changeHeight" text="Augmenter/diminuer la hauteur de la lampe"/>
-            <text name="button_height_changeStepSize" text="Taille de pas: %s (%sm)"/>
+            <text name="button_height_changeStepSize" text="Hauteur taille de pas: %s (%sm)"/>
             <text name="button_height_changeStepSize_Coarse" text="Grossier"/>
             <text name="button_height_changeStepSize_Fine" text="Fine"/>
             <text name="button_height_changeStepSize_UltraFine" text="Ultrafin"/>
@@ -66,7 +66,7 @@ If you can help translate it, feel free to contribute on GitHub.
 
             <!-- Rotation -->
             <text name="button_changeRotation" text="Tourner la lampe vers la droite / la gauche"/>
-            <text name="button_rotation_changeStepSize" text="Taille de pas: %s (%s°)"/>
+            <text name="button_rotation_changeStepSize" text="Taille de la rotation: %s (%s°)"/>
 
             <!-- LockState -->
             <text name="button_changeLockState" text="État de verrouillage de la lampe: %s"/>

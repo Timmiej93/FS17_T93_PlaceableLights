@@ -49,7 +49,7 @@
 
             <!-- Height -->
             <text name="button_changeHeight" text="Lamp naar boven/beneden verplaatsen"/>
-            <text name="button_height_changeStepSize" text="Stapgrootte: %s (%sm)"/>
+            <text name="button_height_changeStepSize" text="Hoogte stapgrootte: %s (%sm)"/>
             <text name="button_height_changeStepSize_Coarse" text="Grof"/>
             <text name="button_height_changeStepSize_Fine" text="Fijn"/>
             <text name="button_height_changeStepSize_UltraFine" text="Ultra fijn"/>
@@ -61,7 +61,7 @@
 
             <!-- Rotation -->
             <text name="button_changeRotation" text="Lamp naar rechts/links roteren"/>
-            <text name="button_rotation_changeStepSize" text="Stapgrootte: %s (%s°)"/>
+            <text name="button_rotation_changeStepSize" text="Rotatie stapgrootte: %s (%s°)"/>
 
             <!-- LockState -->
             <text name="button_changeLockState" text="Lamp vergrendelingsstaat: %s"/>

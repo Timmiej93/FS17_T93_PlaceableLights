@@ -50,7 +50,7 @@
 
             <!-- Height -->
             <text name="button_changeHeight" text="Lampenhöhe erhöhen/verringern"/>
-            <text name="button_height_changeStepSize" text="Schrittlänge: %s (%sm)"/>
+            <text name="button_height_changeStepSize" text="Höhe schrittlänge: %s (%sm)"/>
             <text name="button_height_changeStepSize_Coarse" text="Grob"/>
             <text name="button_height_changeStepSize_Fine" text="Fein"/>
             <text name="button_height_changeStepSize_UltraFine" text="Ultrafein"/>
@@ -62,7 +62,7 @@
 
             <!-- Rotation -->
             <text name="button_changeRotation" text="Lampe nach rechts/links drehen"/>
-            <text name="button_rotation_changeStepSize" text="Schrittlänge: %s (%s°)"/>
+            <text name="button_rotation_changeStepSize" text="Rotationsschrittgröße: %s (%s°)"/>
 
             <!-- LockState -->
             <text name="button_changeLockState" text="Lamp Sperrzustand: %s"/>
