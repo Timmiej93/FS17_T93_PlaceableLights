@@ -2,14 +2,14 @@
 
 <i3D name="untitled" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="7.0.5"/>
+    <Export program="GIANTS Editor 64bit" version="7.1.0"/>
   </Asset>
 
   <Files>
     <File fileId="4" filename="../shaders/buildingShader.xml" relativePath="true"/>
-    <File fileId="7" filename="../shaders/emissiveLightsShader.xml" relativePath="true"/>
-    <File fileId="8" filename="../shared/coronaOrange_diffuse.png" relativePath="true"/>
-    <File fileId="6" filename="../shared/coronaWhite_diffuse.png" relativePath="true"/>
+    <File fileId="6" filename="../shaders/emissiveLightsShader.xml" relativePath="true"/>
+    <File fileId="7" filename="../shared/coronaOrange_diffuse.png" relativePath="true"/>
+    <File fileId="5" filename="../shared/coronaWhite_diffuse.png" relativePath="true"/>
     <File fileId="1" filename="../textures/sosnovka/electricityAssets_diffuse.png" relativePath="true"/>
     <File fileId="2" filename="../textures/sosnovka/electricityAssets_normal.png" relativePath="true"/>
     <File fileId="3" filename="../textures/sosnovka/electricityAssets_specular.png" relativePath="true"/>
@@ -17,24 +17,24 @@
 
 
   <Materials>
-    <Material name="electricityAssets_mat" materialId="10" ambientColor="1 1 1" cosPower="255" specularColor="1 1 1" customShaderId="4" customShaderVariation="FORCE_GLOOSS_SECONDUV">
+    <Material name="electricityAssets_mat" materialId="8" ambientColor="1 1 1" cosPower="255" specularColor="1 1 1" customShaderId="4" customShaderVariation="FORCE_GLOOSS_SECONDUV">
       <Texture fileId="1"/>
       <Normalmap fileId="2"/>
       <Glossmap fileId="3"/>
       <CustomParameter name="uvScale" value="30 30 2 2"/>
       <CustomParameter name="colorScale" value="0.8 0.55 0.055 1"/>
     </Material>
-    <Material name="coronaOrangee_mat" materialId="12" ambientColor="1 1 1" alphaBlending="true" customShaderId="7" customShaderVariation="BILLBOARD">
-      <Emissivemap fileId="8"/>
+    <Material name="01 - Default" materialId="12" diffuseColor="0.584314 0.584314 0.584314 1" ambientColor="0.588235 0.588235 0.588235">
+    </Material>
+    <Material name="UnnamedMaterial" materialId="13" diffuseColor="1 1 1 1" ambientColor="1 1 1">
+    </Material>
+    <Material name="coronaWhite_mat" materialId="11" ambientColor="1 1 1" alphaBlending="true" customShaderId="6" customShaderVariation="BILLBOARD">
+      <Emissivemap fileId="5"/>
       <CustomParameter name="blinkOffset" value="0 0 0 0"/>
     </Material>
-    <Material name="coronaWhite_mat" materialId="8" ambientColor="1 1 1" alphaBlending="true" customShaderId="7" customShaderVariation="BILLBOARD">
-      <Emissivemap fileId="6"/>
+    <Material name="coronaOrangee_mat" materialId="10" ambientColor="1 1 1" alphaBlending="true" customShaderId="6" customShaderVariation="BILLBOARD">
+      <Emissivemap fileId="7"/>
       <CustomParameter name="blinkOffset" value="0 0 0 0"/>
-    </Material>
-    <Material name="01 - Default" materialId="11" diffuseColor="0.584314 0.584314 0.584314 1" ambientColor="0.588235 0.588235 0.588235">
-    </Material>
-    <Material name="UnnamedMaterial" materialId="6" diffuseColor="1 1 1 1" ambientColor="1 1 1">
     </Material>
   </Materials>
 
@@ -47,32 +47,33 @@
   </Dynamics>
 
   <Scene>
-    <TransformGroup name="base" nodeId="18">
-      <Shape shapeId="1" name="wallLight2" kinematic="true" nodeId="19" materialIds="10" castsShadows="true" receiveShadows="true">
-        <TransformGroup name="lighting" translation="0.736 1.477 0" nodeId="20">
-          <TransformGroup name="white" nodeId="21">
-            <Light name="lightSource" translation="0.126424 -0.092 1.95312e-05" rotation="-90 -1.59028e-15 35" nodeId="22" type="spot" color="1 1 0.75" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="16" coneAngle="120" dropOff="5"/>
-            <Shape shapeId="2" name="corona" translation="0.0788507 -0.113606 1.95291e-05" rotation="55 90 0" scale="2 2 2" visibility="false" clipDistance="80" nodeId="23" materialIds="8" castsShadows="true" receiveShadows="true"/>
+    <TransformGroup name="base" nodeId="19">
+      <Shape shapeId="1" name="wallLight2" kinematic="true" nodeId="20" materialIds="8" castsShadows="true" receiveShadows="true">
+        <TransformGroup name="lighting" translation="0.736 1.477 0" nodeId="21">
+          <TransformGroup name="white" nodeId="22">
+            <Light name="lightSource" translation="0.126424 -0.092 1.95312e-05" rotation="-90 -1.59028e-15 35" nodeId="23" type="spot" color="1 1 0.75" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="16" coneAngle="120" dropOff="5"/>
+            <Shape shapeId="2" name="corona" translation="0.0788507 -0.113606 1.95291e-05" rotation="55 90 0" scale="2 2 2" visibility="false" clipDistance="80" nodeId="24" materialIds="11" castsShadows="true" receiveShadows="true"/>
           </TransformGroup>
-          <TransformGroup name="orange" visibility="false" nodeId="24">
-            <Light name="lightSource" translation="0.126424 -0.092 1.95312e-05" rotation="-90 -1.59028e-15 35" nodeId="25" type="spot" color="1 0.45 0" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="16" coneAngle="120" dropOff="5"/>
-            <Shape shapeId="2" name="corona" translation="0.0909659 -0.130909 1.95286e-05" rotation="55 90 0" scale="2 2 2" visibility="false" clipDistance="80" nodeId="26" materialIds="12" castsShadows="true" receiveShadows="true"/>
+          <TransformGroup name="orange" visibility="false" nodeId="25">
+            <Light name="lightSource" translation="0.126424 -0.092 1.95312e-05" rotation="-90 -1.59028e-15 35" nodeId="26" type="spot" color="1 0.45 0" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="16" coneAngle="120" dropOff="5"/>
+            <Shape shapeId="2" name="corona" translation="0.0909659 -0.130909 1.95286e-05" rotation="55 90 0" scale="2 2 2" visibility="false" clipDistance="80" nodeId="27" materialIds="10" castsShadows="true" receiveShadows="true"/>
           </TransformGroup>
         </TransformGroup>
       </Shape>
-      <Shape shapeId="3" name="PlayerTrigger" static="true" trigger="true" collisionMask="1048576" nodeId="27" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
-      <Shape shapeId="4" name="alignmentGuide" translation="0.03 50 0" scale="0.05 100 0.05" nodeId="28" materialIds="6" distanceBlending="false"/>
+      <Shape shapeId="3" name="PlayerTrigger" static="true" trigger="true" collisionMask="1048576" nodeId="28" materialIds="12" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+      <Shape shapeId="4" name="alignmentGuide" translation="0.03 50 0" scale="0.05 100 0.05" nodeId="29" materialIds="13" distanceBlending="false"/>
     </TransformGroup>
   </Scene>
 
   <UserAttributes>
-    <UserAttribute nodeId="18">
+    <UserAttribute nodeId="19">
       <Attribute name="alignmentGuide" type="string" value="0>2"/>
       <Attribute name="lighting" type="string" value="0>0|0"/>
       <Attribute name="lightingOrange" type="string" value="0>0|0|1"/>
       <Attribute name="lightingWhite" type="string" value="0>0|0|0"/>
       <Attribute name="playerTrigger" type="string" value="0>1"/>
       <Attribute name="variableHeight" type="string" value="0>0"/>
+      <Attribute name="variableRotation" type="string" value="0>0"/>
     </UserAttribute>
   </UserAttributes>
 
