@@ -11,39 +11,66 @@ If you can help translate it, feel free to contribute on GitHub.
 
     <texts>
         <!-- Function text -->
-        <text name="function_lights" text="Cette lampe peut être placée n&apos;importe où sur la carte, même à l&apos;intérieur d&apos;autres objets. Les fonctions sont disponibles près de la base de chaque lampe."/>
+            <text name="function_lights" text="Cette lampe peut être placée n&apos;importe où sur la carte, même à l&apos;intérieur d&apos;autres objets. Les fonctions sont disponibles près de la base de chaque lampe."/>
 
         <!-- Store text -->
-        <text name="shopItem_light1" text="Éclairage public 1"/>
-        <text name="shopItem_light2" text="Éclairage public 2"/>
-        <text name="shopItem_light3" text="Éclairage public 3"/>
-        <text name="shopItem_wallLight1" text="Applique murale 1"/>
-        <text name="shopItem_wallLight2" text="Applique murale 2"/>
+            <text name="shopItem_light1" text="Éclairage public 1"/>
+            <text name="shopItem_light2" text="Éclairage public 2"/>
+            <text name="shopItem_light3" text="Éclairage public 3"/>
+            <text name="shopItem_wallLight1" text="Applique murale 1"/>
+            <text name="shopItem_wallLight2" text="Applique murale 2"/>
 
         <!-- Inputsettings text -->
-        <text name="input_changeLightBehavior" text="T93 Paquet de lumières pouvant être placé: Changer le comportement de la lampe"/>
-        <text name="input_changeStepSize" text="T93 Paquet de lumières pouvant être placé: Changer la taille de l&apos;étape de réglage de la hauteur de la lampe"/>
-        <text name="input_changeHeightUp" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le haut"/>
-        <text name="input_changeHeightDown" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le bas"/>
-        <text name="input_changeHeightF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche haut et bas."/>
-        <text name="input_changeBrightnessUp" text="T93 Paquet de lumières pouvant être placé: Augmente la luminosité de la lumière."/>
-        <text name="input_changeBrightnessDown" text="T93 Paquet de lumières pouvant être placé: Diminuer la luminosité de la lumière."/>
-        <text name="input_changeBrightnessF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche de luminosité d&apos;augmentation et de diminution."/>
-        <text name="input_changeLightColor" text="T93 Paquet de lumières pouvant être placé: Changer la couleur de la lumière."/>
+            <!-- Individuals -->
+            <text name="input_changeLightBehavior" text="T93 Paquet de lumières pouvant être placé: Changer le comportement de la lampe"/>
+            <text name="input_changeLightColor" text="T93 Paquet de lumières pouvant être placé: Changer la couleur de la lumière."/>
+            <text name="input_changeLockState" text="T93 Paquet de lumières pouvant être placé: Changer l'état de verrouillage."/>
+
+            <!-- Height -->
+            <text name="input_changeStepSize" text="T93 Paquet de lumières pouvant être placé: Changer la taille de l&apos;étape de réglage de la hauteur de la lampe"/>
+            <text name="input_changeHeightUp" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le haut"/>
+            <text name="input_changeHeightDown" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le bas"/>
+            <text name="input_changeHeightF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche haut et bas."/>
+
+            <!-- Brightness -->
+            <text name="input_changeBrightnessUp" text="T93 Paquet de lumières pouvant être placé: Augmente la luminosité de la lumière."/>
+            <text name="input_changeBrightnessDown" text="T93 Paquet de lumières pouvant être placé: Diminuer la luminosité de la lumière."/>
+            <text name="input_changeBrightnessF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche de luminosité d&apos;augmentation et de diminution."/>
+
+            <!-- Rotation -->
+            <text name="input_changeRotationRight" text="T93 Paquet de lumières pouvant être placé: Tourner vers la droite."/>
+            <text name="input_changeRotationLeft" text="T93 Paquet de lumières pouvant être placé: tourner vers la gauche."/>
+            <text name="input_changeRotationF1" text="T93 Paquet de lumières pouvant être placé: Bouton fictif, pour un menu d'aide moins pollué. Réglez à la fois à gauche et à droite pour faire pivoter."/>
 
         <!-- In-game text -->
-        <text name="button_lightBehavior" text="Comportement actuel: %s"/>
-        <text name="button_lightBehavior_alwaysOn" text="Toujours sur"/>
-        <text name="button_lightBehavior_alwaysOff" text="Toujours désactivé"/>
-        <text name="button_lightBehavior_automatic" text="Automatique"/>
-        <text name="button_height_changeStepSize" text="Taille de pas: %s (%sm)"/>
-        <text name="button_height_changeStepSize_Coarse" text="Grossier"/>
-        <text name="button_height_changeStepSize_Fine" text="Fine"/>
-        <text name="button_height_changeStepSize_UltraFine" text="Ultrafin"/>
-        <text name="button_changeHeight" text="Augmenter/diminuer la hauteur de la lampe"/>
-        <text name="button_changeColor" text="Type de lumière: %s"/>
-        <text name="button_changeColor_white" text="Normal"/>
-        <text name="button_changeColor_orange" text="Sodium"/>
-        <text name="button_changeBrightness" text="Augmenter/diminuer la luminosité"/>
+            <!-- Individual -->
+            <text name="button_changeBrightness" text="Augmenter/diminuer la luminosité"/>
+
+            <!-- Behavior -->
+            <text name="button_lightBehavior" text="Comportement actuel: %s"/>
+            <text name="button_lightBehavior_alwaysOn" text="Toujours sur"/>
+            <text name="button_lightBehavior_alwaysOff" text="Toujours désactivé"/>
+            <text name="button_lightBehavior_automatic" text="Automatique"/>
+
+            <!-- Height -->
+            <text name="button_changeHeight" text="Augmenter/diminuer la hauteur de la lampe"/>
+            <text name="button_height_changeStepSize" text="Taille de pas: %s (%sm)"/>
+            <text name="button_height_changeStepSize_Coarse" text="Grossier"/>
+            <text name="button_height_changeStepSize_Fine" text="Fine"/>
+            <text name="button_height_changeStepSize_UltraFine" text="Ultrafin"/>
+
+            <!-- Color -->
+            <text name="button_changeColor" text="Type de lumière: %s"/>
+            <text name="button_changeColor_white" text="Normal"/>
+            <text name="button_changeColor_orange" text="Sodium"/>
+
+            <!-- Rotation -->
+            <text name="button_changeRotation" text="Tourner la lampe vers la droite / la gauche"/>
+            <text name="button_rotation_changeStepSize" text="Taille de pas: %s (%s°)"/>
+
+            <!-- LockState -->
+            <text name="button_changeLockState" text="État de verrouillage de la lampe: %s"/>
+            <text name="button_lockState_locked" text="Fermé à clef"/>
+            <text name="button_lockState_unlocked" text="Déverrouillé"/>
     </texts>
 </l10n>

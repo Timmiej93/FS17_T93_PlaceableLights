@@ -22,8 +22,6 @@
 
     <placement testSizeX="0.1" testSizeZ="0.1" sizeX="0.1" sizeZ="0.1" useRandomYRotation="false" useManualYRotation="true" />
 
-    <placeableLight coarseHeightChange="1" fineHeightChange="0.1" ultraFineHeightChange="0.01" />
-
     <placeableType>placeableLights</placeableType>
     <filename>i3d/WallLight1.i3d</filename>
 </placeable>

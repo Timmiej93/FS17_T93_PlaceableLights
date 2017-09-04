@@ -6,39 +6,67 @@
     
     <texts>
         <!-- Function text -->
-        <text name="function_lights" text="This lamp can be placed anywhere on the map, even inside other objects. Functions are available near the base of each lamp."/>
+            <text name="function_lights" text="This lamp can be placed anywhere on the map, even inside other objects. Functions are available near the base of each lamp."/>
 
         <!-- Store text -->
-        <text name="shopItem_light1" text="Streetlight 1"/>
-        <text name="shopItem_light2" text="Streetlight 2"/>
-        <text name="shopItem_light3" text="Streetlight 3"/>
-        <text name="shopItem_wallLight1" text="WallLight 1"/>
-        <text name="shopItem_wallLight2" text="WallLight 2"/>
+            <text name="shopItem_light1" text="Streetlight 1"/>
+            <text name="shopItem_light2" text="Streetlight 2"/>
+            <text name="shopItem_light3" text="Streetlight 3"/>
+            <text name="shopItem_wallLight1" text="WallLight 1"/>
+            <text name="shopItem_wallLight2" text="WallLight 2"/>
 
         <!-- Inputsettings text -->
-        <text name="input_changeLightBehavior" text="T93 Placeable lights pack: Change the lamp&apos;s behavior"/>
-        <text name="input_changeStepSize" text="T93 Placeable lights pack: Change the lamp&apos;s height adjustment step size"/>
-        <text name="input_changeHeightUp" text="T93 Placeable lights pack: Move the light upwards"/>
-        <text name="input_changeHeightDown" text="T93 Placeable lights pack: Move the light downwards"/>
-        <text name="input_changeHeightF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the up and down key."/>
-        <text name="input_changeBrightnessUp" text="T93 Placeable lights pack: Increase light brightness"/>
-        <text name="input_changeBrightnessDown" text="T93 Placeable lights pack: Decrease light brightness"/>
-        <text name="input_changeBrightnessF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the increase and decrease brightness key."/>
-        <text name="input_changeLightColor" text="T93 Placeable lights pack: Change the light&apos;s color."/>
+            <!-- Individuals -->
+            <text name="input_changeLightBehavior" text="T93 Placeable lights pack: Change the lamp&apos;s behavior"/>
+            <text name="input_changeLightColor" text="T93 Placeable lights pack: Change the light&apos;s color."/>
+            <text name="input_changeLockState" text="T93 Placeable lights pack: Change lock state."/>
+
+            <!-- Height -->
+            <text name="input_changeStepSize" text="T93 Placeable lights pack: Change the lamp&apos;s height adjustment step size"/>
+            <text name="input_changeHeightUp" text="T93 Placeable lights pack: Move the light upwards"/>
+            <text name="input_changeHeightDown" text="T93 Placeable lights pack: Move the light downwards"/>
+            <text name="input_changeHeightF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the up and down key."/>
+
+            <!-- Brightness -->
+            <text name="input_changeBrightnessUp" text="T93 Placeable lights pack: Increase light brightness"/>
+            <text name="input_changeBrightnessDown" text="T93 Placeable lights pack: Decrease light brightness"/>
+            <text name="input_changeBrightnessF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the increase and decrease brightness key."/>
+
+            <!-- Rotation -->
+            <text name="input_changeRotationRight" text="T93 Placeable lights pack: Rotate right."/>
+            <text name="input_changeRotationLeft" text="T93 Placeable lights pack: Rotate left."/>
+            <text name="input_changeRotationF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both rotate right and rotate left."/>
+
         
         <!-- In-game text -->
-        <text name="button_lightBehavior" text="Current behavior: %s"/>
-        <text name="button_lightBehavior_alwaysOn" text="Always on"/>
-        <text name="button_lightBehavior_alwaysOff" text="Always off"/>
-        <text name="button_lightBehavior_automatic" text="Automatic"/>
-        <text name="button_height_changeStepSize" text="Step size: %s (%sm)"/>
-        <text name="button_height_changeStepSize_Coarse" text="Coarse"/>
-        <text name="button_height_changeStepSize_Fine" text="Fine"/>
-        <text name="button_height_changeStepSize_UltraFine" text="Ultra-fine"/>
-        <text name="button_changeHeight" text="Increase/decrease lamp height"/>
-        <text name="button_changeColor" text="Light type: %s"/>
-        <text name="button_changeColor_white" text="Normal"/>
-        <text name="button_changeColor_orange" text="Sodium"/>
-        <text name="button_changeBrightness" text="Increase/Decrease brightness (%d)"/>
+            <!-- Individual -->
+            <text name="button_changeBrightness" text="Increase/Decrease brightness (%d)"/>
+
+            <!-- Behavior -->
+            <text name="button_lightBehavior" text="Current behavior: %s"/>
+            <text name="button_lightBehavior_alwaysOn" text="Always on"/>
+            <text name="button_lightBehavior_alwaysOff" text="Always off"/>
+            <text name="button_lightBehavior_automatic" text="Automatic"/>
+
+            <!-- Height -->
+            <text name="button_changeHeight" text="Increase/decrease lamp height"/>
+            <text name="button_height_changeStepSize" text="Step size: %s (%sm)"/>
+            <text name="button_height_changeStepSize_Coarse" text="Coarse"/>
+            <text name="button_height_changeStepSize_Fine" text="Fine"/>
+            <text name="button_height_changeStepSize_UltraFine" text="Ultra-fine"/>
+
+            <!-- Color -->
+            <text name="button_changeColor" text="Light type: %s"/>
+            <text name="button_changeColor_white" text="Normal"/>
+            <text name="button_changeColor_orange" text="Sodium"/>
+
+            <!-- Rotation -->
+            <text name="button_changeRotation" text="Rotate lamp right/left"/>
+            <text name="button_rotation_changeStepSize" text="Step size: %s (%s°)"/>
+
+            <!-- LockState -->
+            <text name="button_changeLockState" text="Lamp lock state: %s"/>
+            <text name="button_lockState_locked" text="Locked"/>
+            <text name="button_lockState_unlocked" text="Unlocked"/>
     </texts>
 </l10n>
