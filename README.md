@@ -1,8 +1,6 @@
 # FS17 T93 PlaceableLights
 
-***BE AWARE***: Massive update coming soon, any work you do based on what's here now might be wasted!
 
----
 
 ***WARNING***: You're looking at a development version of this mod. If you're not interested in developing, and simply want to play Farming Simulator with this mod, download it from ModHub when it's released (link will appear when mod is released). The code here might break your savegame, your computer, or your mind. 
 
