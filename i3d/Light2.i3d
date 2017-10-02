@@ -6,36 +6,37 @@
   </Asset>
 
   <Files>
-    <File fileId="5" filename="../shaders/emissiveLightsShader.xml" relativePath="true"/>
-    <File fileId="6" filename="../shared/coronaOrange_diffuse.png" relativePath="true"/>
-    <File fileId="7" filename="../shared/coronaWhite_diffuse.png" relativePath="true"/>
     <File fileId="1" filename="../textures/goldcrestValley/streetLamps_diffuse.png" relativePath="true"/>
     <File fileId="2" filename="../textures/goldcrestValley/streetLamps_normal.png" relativePath="true"/>
     <File fileId="3" filename="../textures/goldcrestValley/streetLamps_specular.png" relativePath="true"/>
+    <File fileId="6" filename="../shaders/emissiveLightsShader.xml" relativePath="true"/>
+    <File fileId="7" filename="../shared/coronaOrange_diffuse.png" relativePath="true"/>
+    <File fileId="8" filename="../shared/coronaWhite_diffuse.png" relativePath="true"/>
+    <File fileId="4" filename="../textures/goldcrestValley/streetLamps_diffuse.png" relativePath="true"/>
   </Files>
 
 
   <Materials>
-    <Material name="coronaOrange_mat" materialId="12" ambientColor="1 1 1" alphaBlending="true" customShaderId="5" customShaderVariation="BILLBOARD">
-      <Emissivemap fileId="6"/>
+    <Material name="streetLampsLit_mat" materialId="10" ambientColor="1 1 1">
+      <Emissivemap fileId="4"/>
+    </Material>
+    <Material name="lampsLit_mat" materialId="12" ambientColor="1 1 1" emissiveColor="1 1 1 0.894118" alphaBlending="true" customShaderId="6" customShaderVariation="STATIC_LIGHT">
       <CustomParameter name="blinkOffset" value="0 0 0 0"/>
     </Material>
-    <Material name="streetLamps_mat" materialId="7" ambientColor="1 1 1" cosPower="200" specularColor="1 1 1">
-      <Texture fileId="1"/>
-      <Normalmap fileId="2"/>
-      <Glossmap fileId="3"/>
-    </Material>
-    <Material name="coronaWhite_mat" materialId="9" ambientColor="1 1 1" alphaBlending="true" customShaderId="5" customShaderVariation="BILLBOARD">
+    <Material name="coronaOrange_mat" materialId="7" ambientColor="1 1 1" alphaBlending="true" customShaderId="6" customShaderVariation="BILLBOARD">
       <Emissivemap fileId="7"/>
       <CustomParameter name="blinkOffset" value="0 0 0 0"/>
     </Material>
-    <Material name="streetLampsLit_mat" materialId="13" ambientColor="1 1 1">
-      <Emissivemap fileId="1"/>
-    </Material>
-    <Material name="01 - Default" materialId="10" diffuseColor="0.584314 0.584314 0.584314 1" ambientColor="0.588235 0.588235 0.588235">
-    </Material>
-    <Material name="lampsLit_mat" materialId="11" ambientColor="1 1 1" emissiveColor="1 1 1 0.894118" alphaBlending="true" customShaderId="5" customShaderVariation="STATIC_LIGHT">
+    <Material name="coronaWhite_mat" materialId="9" ambientColor="1 1 1" alphaBlending="true" customShaderId="6" customShaderVariation="BILLBOARD">
+      <Emissivemap fileId="8"/>
       <CustomParameter name="blinkOffset" value="0 0 0 0"/>
+    </Material>
+    <Material name="01 - Default" materialId="11" diffuseColor="0.584314 0.584314 0.584314 1" ambientColor="0.588235 0.588235 0.588235">
+    </Material>
+    <Material name="streetLamps_mat" materialId="35" ambientColor="1 1 1" cosPower="200" specularColor="1 1 1">
+      <Texture fileId="1"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
     </Material>
   </Materials>
 
@@ -48,27 +49,27 @@
   </Dynamics>
 
   <Scene>
-    <TransformGroup name="base" nodeId="40">
-      <Shape shapeId="1" name="light2" kinematic="true" clipDistance="151" nodeId="41" materialIds="7" castsShadows="true" receiveShadows="true">
-        <TransformGroup name="lighting" clipDistance="129" nodeId="42">
-          <Shape shapeId="2" name="innerLight" translation="2.01545 8.74886 7.62939e-07" clipDistance="400" nodeId="43" materialIds="13" castsShadows="true" receiveShadows="true"/>
-          <Shape shapeId="3" name="lampLit" translation="2.0154 8.74461 0.00720123" clipDistance="129" nodeId="44" materialIds="11" castsShadows="true" receiveShadows="true"/>
-          <TransformGroup name="orange" visibility="false" nodeId="45">
-            <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="46" type="spot" color="1 0.45 0" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
-            <Shape shapeId="4" name="coronaOrange" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="47" materialIds="12"/>
+    <TransformGroup name="base" nodeId="19">
+      <Shape shapeId="1" name="light2" static="true" clipDistance="151" nodeId="44" materialIds="35" castsShadows="true" receiveShadows="true">
+        <TransformGroup name="lighting" clipDistance="129" nodeId="21">
+          <Shape shapeId="2" name="innerLight" translation="2.01545 8.74886 7.62939e-07" clipDistance="400" nodeId="22" materialIds="10" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="3" name="lampLit" translation="2.0154 8.74461 0.00720123" clipDistance="129" nodeId="23" materialIds="12" castsShadows="true" receiveShadows="true"/>
+          <TransformGroup name="orange" visibility="false" nodeId="24">
+            <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="25" type="spot" color="1 0.45 0" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
+            <Shape shapeId="4" name="coronaOrange" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="26" materialIds="7"/>
           </TransformGroup>
-          <TransformGroup name="white" nodeId="48">
-            <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="49" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
-            <Shape shapeId="4" name="coronaWhite" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="50" materialIds="9"/>
+          <TransformGroup name="white" nodeId="27">
+            <Light name="lightSource" translation="2.0154 8.65218 0.000482972" rotation="-90 0 0" clipDistance="120" nodeId="28" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.001" depthMapSlopeScaleBias="0.005" depthMapSlopeClamp="0.02" depthMapResolution="256" shadowFarDistance="80" shadowExtrusionDistance="200" shadowPerspective="false" decayRate="1" range="12" coneAngle="120" dropOff="5"/>
+            <Shape shapeId="4" name="coronaWhite" translation="2.01543 8.62 4.39452e-15" rotation="90 0 0" clipDistance="129" nodeId="29" materialIds="9"/>
           </TransformGroup>
         </TransformGroup>
       </Shape>
-      <Shape shapeId="5" name="PlayerTrigger" static="true" trigger="true" collisionMask="1048576" nodeId="51" materialIds="10" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+      <Shape shapeId="5" name="PlayerTrigger" static="true" trigger="true" collisionMask="1048576" nodeId="30" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
     </TransformGroup>
   </Scene>
 
   <UserAttributes>
-    <UserAttribute nodeId="40">
+    <UserAttribute nodeId="19">
       <Attribute name="lighting" type="string" value="0>0|0"/>
       <Attribute name="lightingOrange" type="string" value="0>0|0|2"/>
       <Attribute name="lightingWhite" type="string" value="0>0|0|3"/>

@@ -1,28 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="37">
     <author>Timmiej93</author>
-    <version>0.9.9.9</version>
+    <version>1.0.0.0</version>
     <title>
-        <en>Placeable lights pack</en>
-        <de>Plazierbare lichter pack</de>
-        <fr>Paquet de lumières pouvant être placé</fr>
-        <nl>Plaatsbare lampen pakket</nl>
+        <en>Placeable Lights Pack</en>
+        <de>Plazierbare Lichter Pack</de>
+        <fr>Paquet de Lumières Pouvant être Placé</fr>
+        <nl>Plaatsbare Lampen Pakket</nl>
     </title>
     <description>
         <en><![CDATA[Placeable lights pack. These lights can be placed around your map to bring more light in the darkness. Every light has some options, which can be changed when you're near them.
 
-As an extra feature, these lights can be placed anywhere, even inside other objects.]]></en>
+Features:
+- These lights can be placed anywhere, even inside other objects.
+- The walllights can be raised and lowered in height, both while and after placement.]]></en>
         <de><![CDATA[Paquet de lumières pouvant être placé. Plazierbare lichter pack. Diese Lichter können in deiner Karte platziert werden, um mehr Licht in die Dunkelheit zu bringen. Jedes Licht hat einige Optionen, die geändert werden können, wenn man in der Nähe des Lichts ist.
 
-Als zusätzliches Feature können diese Lichter überall platziert werden, auch in anderen Objekten.]]></de>
+Features:
+- Diese Lichter können überall platziert werden, auch in anderen Objekten.
+- Die Wandleuchten können angehoben und gesenkt werden, sowohl während als auch nach der Platzierung.]]></de>
         <fr><![CDATA[Ces lumières peuvent être placées dans votre carte pour apporter plus de lumière dans l'obscurité. Chaque lumière a des options, qui peuvent être changées lorsque vous êtes près de la lumière.
 
-En tant que caractéristique supplémentaire, ces lumières peuvent être placées n'importe où, même à l'intérieur d'autres objets.]]></fr>
+Caractéristiques:
+- Ces lumières peuvent être placées n'importe où, même à l'intérieur d'autres objets.
+- Les lumières murales peuvent être relevées et abaissées en hauteur, pendant et après le placement.]]></fr>
         <nl><![CDATA[Plaatsbare lampen pakket. Deze lampen kunnen overal in de wereld geplaatst worden, om meer licht in de duisternis te brengen. Iedere lamp heeft een paar opties, die verandert kunnen worden als je in de buurt van de lamp bent.
 
-Als extra functie kunnen deze lampen overal geplaatst worden, zelfs in andere objecten.]]></nl>
+Features:
+- Deze lampen kunnen overal geplaatst worden, zelfs in andere objecten.
+- De wandlampen kunnen in hoogte worden versteld, zowel tijdens als na het plaatsen.]]></nl>
     </description>
-    <iconFilename>storeImages/store_all.png</iconFilename>
+    <iconFilename>storeImages/store.png</iconFilename>
     <multiplayer supported="true"/>
     
     <storeItems>
@@ -34,7 +42,7 @@ Als extra functie kunnen deze lampen overal geplaatst worden, zelfs in andere ob
     </storeItems>
 
     <extraSourceFiles>
-        <sourceFile filename="scripts/PlaceableLights.lua"/>
+        <sourceFile filename="scripts/T93_PlaceableLights.lua"/>
     </extraSourceFiles>
 
     <inputBindings>

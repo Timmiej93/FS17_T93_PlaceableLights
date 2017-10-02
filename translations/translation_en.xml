@@ -17,30 +17,35 @@
 
         <!-- Inputsettings text -->
             <!-- Individuals -->
-            <text name="input_changeLightBehavior" text="T93 Placeable lights pack: Change the lamp&apos;s behavior"/>
-            <text name="input_changeLightColor" text="T93 Placeable lights pack: Change the light&apos;s color."/>
-            <text name="input_changeLockState" text="T93 Placeable lights pack: Change lock state."/>
+            <text name="input_changeLightBehavior" text="T93 PLP: Change the lamp&apos;s behavior"/>
+            <text name="input_changeLightColor" text="T93 PLP: Change the light&apos;s color."/>
+            <text name="input_changeLockState" text="T93 PLP: Change lock state."/>
 
             <!-- Height -->
-            <text name="input_changeStepSize" text="T93 Placeable lights pack: Change the lamp&apos;s height adjustment step size"/>
-            <text name="input_changeHeightUp" text="T93 Placeable lights pack: Move the light upwards"/>
-            <text name="input_changeHeightDown" text="T93 Placeable lights pack: Move the light downwards"/>
-            <text name="input_changeHeightF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the up and down key."/>
+            <text name="input_changeStepSize" text="T93 PLP: Change the lamp&apos;s height adjustment step size"/>
+            <text name="input_changeHeightUp" text="T93 PLP: Move the light upwards"/>
+            <text name="input_changeHeightDown" text="T93 PLP: Move the light downwards"/>
+            <text name="input_changeHeightF1" text="T93 PLP: Dummy key, for less cluttered help menu. Set to both the up and down key."/>
 
             <!-- Brightness -->
-            <text name="input_changeBrightnessUp" text="T93 Placeable lights pack: Increase light brightness"/>
-            <text name="input_changeBrightnessDown" text="T93 Placeable lights pack: Decrease light brightness"/>
-            <text name="input_changeBrightnessF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both the increase and decrease brightness key."/>
+            <text name="input_changeBrightnessUp" text="T93 PLP: Increase light brightness"/>
+            <text name="input_changeBrightnessDown" text="T93 PLP: Decrease light brightness"/>
+            <text name="input_changeBrightnessF1" text="T93 PLP: Dummy key, for less cluttered help menu. Set to both the increase and decrease brightness key."/>
 
             <!-- Rotation -->
-            <text name="input_changeRotationRight" text="T93 Placeable lights pack: Rotate right."/>
-            <text name="input_changeRotationLeft" text="T93 Placeable lights pack: Rotate left."/>
-            <text name="input_changeRotationF1" text="T93 Placeable lights pack: Dummy key, for less cluttered help menu. Set to both rotate right and rotate left."/>
+            <text name="input_changeRotationRight" text="T93 PLP: Rotate right."/>
+            <text name="input_changeRotationLeft" text="T93 PLP: Rotate left."/>
+            <text name="input_changeRotationF1" text="T93 PLP: Dummy key, for less cluttered help menu. Set to both rotate right and rotate left."/>
+            <text name="input_changeRotationStepSize" text="T93 PLP: Change rotation step size." />
 
         
         <!-- In-game text -->
             <!-- Individual -->
             <text name="button_changeBrightness" text="Increase/Decrease brightness (%d)"/>
+            <text name="button_alignToGround" text="Align to ground: %s" />
+            <text name="button_alignToGround_yes" text="Yes" />
+            <text name="button_alignToGround_no" text="No" />
+            <text name="require_admin_rights" text="Admin rights required to change lamp settings!" />
 
             <!-- Behavior -->
             <text name="button_lightBehavior" text="Current behavior: %s"/>

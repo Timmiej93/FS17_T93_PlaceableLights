@@ -17,30 +17,34 @@
 
         <!-- Inputsettings text -->
             <!-- Individuals -->
-            <text name="input_changeLightBehavior" text="T93 Plazierbare lichter pack: Verhalten der Lampe ändern"/>
-            <text name="input_changeLightColor" text="T93 Plazierbare lichter pack: Lichtfarbe ändern."/>
-            <text name="input_changeLockState" text="T93 Plazierbare lichter pack: Sperrzustand ändern."/>
+            <text name="input_changeLightBehavior" text="T93 PLP: Verhalten der Lampe ändern"/>
+            <text name="input_changeLightColor" text="T93 PLP: Lichtfarbe ändern."/>
+            <text name="input_changeLockState" text="T93 PLP: Sperrzustand ändern."/>
 
             <!-- Height -->
-            <text name="input_changeStepSize" text="T93 Plazierbare lichter pack: Höhenverstellungsschrittgröße der Lampe ändern"/>
-            <text name="input_changeHeightUp" text="T93 Plazierbare lichter pack: Verschiebe das Licht nach oben"/>
-            <text name="input_changeHeightDown" text="T93 Plazierbare lichter pack: Verschiebe das Licht nach unten"/>
-            <text name="input_changeHeightF1" text="T93 Plazierbare lichter pack: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die Auf- und Ab-Taste ein."/>
+            <text name="input_changeStepSize" text="T93 PLP: Höhenverstellungsschrittgröße der Lampe ändern"/>
+            <text name="input_changeHeightUp" text="T93 PLP: Verschiebe das Licht nach oben"/>
+            <text name="input_changeHeightDown" text="T93 PLP: Verschiebe das Licht nach unten"/>
+            <text name="input_changeHeightF1" text="T93 PLP: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die Auf- und Ab-Taste ein."/>
 
             <!-- Brightness -->
-            <text name="input_changeBrightnessUp" text="T93 Plazierbare lichter pack: Helligkeit des Lichts erhöhen."/>
-            <text name="input_changeBrightnessDown" text="T93 Plazierbare lichter pack: Helligkeit des Lichts verringern."/>
-            <text name="input_changeBrightnessF1" text="T93 Plazierbare lichter pack: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die erhöhungs- und verringerungs-Taste des Helligkeit ein."/>
+            <text name="input_changeBrightnessUp" text="T93 PLP: Helligkeit des Lichts erhöhen."/>
+            <text name="input_changeBrightnessDown" text="T93 PLP: Helligkeit des Lichts verringern."/>
+            <text name="input_changeBrightnessF1" text="T93 PLP: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die erhöhungs- und verringerungs-Taste des Helligkeit ein."/>
 
             <!-- Rotation -->
-            <text name="input_changeRotationRight" text="T93 Plazierbare lichter pack: Nach rechts drehen."/>
-            <text name="input_changeRotationLeft" text="T93 Plazierbare lichter pack: Nach links drehen."/>
-            <text name="input_changeRotationF1" text="T93 Plazierbare lichter pack: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die nach links und nach rechts drehen taste ein."/>
-
+            <text name="input_changeRotationRight" text="T93 PLP: Nach rechts drehen."/>
+            <text name="input_changeRotationLeft" text="T93 PLP: Nach links drehen."/>
+            <text name="input_changeRotationF1" text="T93 PLP: Dummy-Taste, für weniger überladene Hilfe-Menü. Stellen Sie sowohl die nach links und nach rechts drehen taste ein."/>
+            <text name="input_changeRotationStepSize" text="T93 PLP: Rotationsschrittgröße ändern." />
 
         <!-- In-game text -->
             <!-- Individual -->
             <text name="button_changeBrightness" text="Helligkeit erhöhen/verringern"/>
+            <text name="button_alignToGround" text="Auf den Boden ausrichten: %s" />
+            <text name="button_alignToGround_yes" text="Ja" />
+            <text name="button_alignToGround_no" text="Nein" />
+            <text name="require_admin_rights" text="Administratorrechte sind erforderlich, um die Lampeneinstellungen zu ändern!" />
 
             <!-- Behavior -->
             <text name="button_lightBehavior" text="Aktuelles Verhalten: %s"/>

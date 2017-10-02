@@ -17,29 +17,34 @@
 
         <!-- Inputsettings text -->
             <!-- Individuals -->
-            <text name="input_changeLightBehavior" text="T93 Plaatsbare lampen pakket: Gedrag van de lamp aanpassen"/>
-            <text name="input_changeLightColor" text="T93 Plaatsbare lampen pakket: Kleur van het licht veranderen."/>
-            <text name="input_changeLockState" text="T93 Plaatsbare lampen pakket: Vergrendelingsstaat veranderen."/>
+            <text name="input_changeLightBehavior" text="T93 PLP: Gedrag van de lamp aanpassen"/>
+            <text name="input_changeLightColor" text="T93 PLP: Kleur van het licht veranderen."/>
+            <text name="input_changeLockState" text="T93 PLP: Vergrendelingsstaat veranderen."/>
 
             <!-- Height -->
-            <text name="input_changeStepSize" text="T93 Plaatsbare lampen pakket: Hoogteverstellings stapgrootte van de lamp aanpassen"/>
-            <text name="input_changeHeightUp" text="T93 Plaatsbare lampen pakket: Lamp naar boven verplaatsen"/>
-            <text name="input_changeHeightDown" text="T93 Plaatsbare lampen pakket: Lamp naar beneden verplaatsen"/>
-            <text name="input_changeHeightF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de omhoog als omlaag knop in."/>
+            <text name="input_changeStepSize" text="T93 PLP: Hoogteverstellings stapgrootte van de lamp aanpassen"/>
+            <text name="input_changeHeightUp" text="T93 PLP: Lamp naar boven verplaatsen"/>
+            <text name="input_changeHeightDown" text="T93 PLP: Lamp naar beneden verplaatsen"/>
+            <text name="input_changeHeightF1" text="T93 PLP: Dummy-knop, voor een minder vervuild help menu. Stel zowel de omhoog als omlaag knop in."/>
 
             <!-- Brightness -->
-            <text name="input_changeBrightnessUp" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verhogen."/>
-            <text name="input_changeBrightnessDown" text="T93 Plaatsbare lampen pakket: Helderheid van het licht verlagen."/>
-            <text name="input_changeBrightnessF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel de verhoog- en verlaag-knop voor de helderheid in."/>
+            <text name="input_changeBrightnessUp" text="T93 PLP: Helderheid van het licht verhogen."/>
+            <text name="input_changeBrightnessDown" text="T93 PLP: Helderheid van het licht verlagen."/>
+            <text name="input_changeBrightnessF1" text="T93 PLP: Dummy-knop, voor een minder vervuild help menu. Stel zowel de verhoog- en verlaag-knop voor de helderheid in."/>
 
             <!-- Rotation -->
-            <text name="input_changeRotationRight" text="T93 Plaatsbare lampen pakket: Naar rechts roteren."/>
-            <text name="input_changeRotationLeft" text="T93 Plaatsbare lampen pakket: Naar links roteren."/>
-            <text name="input_changeRotationF1" text="T93 Plaatsbare lampen pakket: Dummy-knop, voor een minder vervuild help menu. Stel zowel naar links als naar rechts roteren in."/>
+            <text name="input_changeRotationRight" text="T93 PLP: Naar rechts roteren."/>
+            <text name="input_changeRotationLeft" text="T93 PLP: Naar links roteren."/>
+            <text name="input_changeRotationF1" text="T93 PLP: Dummy-knop, voor een minder vervuild help menu. Stel zowel naar links als naar rechts roteren in."/>
+            <text name="input_changeRotationStepSize" text="T93 PLP: Rotatie stapgrootte veranderen." />
 
         <!-- In-game text -->
             <!-- Individual -->
             <text name="button_changeBrightness" text="Helderheid vergroten/verkleinen"/>
+            <text name="button_alignToGround" text="Op de grond plaatsen: %s" />
+            <text name="button_alignToGround_yes" text="Ja" />
+            <text name="button_alignToGround_no" text="Nee" />
+            <text name="require_admin_rights" text="Administratorrechten benodigd om lampinstellingen te kunnen wijzigen!" />
 
             <!-- Behavior -->
             <text name="button_lightBehavior" text="Huidig gedrag: %s"/>

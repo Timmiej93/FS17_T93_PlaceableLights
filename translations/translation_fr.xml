@@ -1,7 +1,7 @@
-﻿<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --
+﻿<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This French translation is copied directly from Google Translate. 
 If you can help translate it, feel free to contribute on GitHub.
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
@@ -22,29 +22,34 @@ If you can help translate it, feel free to contribute on GitHub.
 
         <!-- Inputsettings text -->
             <!-- Individuals -->
-            <text name="input_changeLightBehavior" text="T93 Paquet de lumières pouvant être placé: Changer le comportement de la lampe"/>
-            <text name="input_changeLightColor" text="T93 Paquet de lumières pouvant être placé: Changer la couleur de la lumière."/>
-            <text name="input_changeLockState" text="T93 Paquet de lumières pouvant être placé: Changer l'état de verrouillage."/>
+            <text name="input_changeLightBehavior" text="T93 PLP: Changer le comportement de la lampe"/>
+            <text name="input_changeLightColor" text="T93 PLP: Changer la couleur de la lumière."/>
+            <text name="input_changeLockState" text="T93 PLP: Changer l'état de verrouillage."/>
 
             <!-- Height -->
-            <text name="input_changeStepSize" text="T93 Paquet de lumières pouvant être placé: Changer la taille de l&apos;étape de réglage de la hauteur de la lampe"/>
-            <text name="input_changeHeightUp" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le haut"/>
-            <text name="input_changeHeightDown" text="T93 Paquet de lumières pouvant être placé: Déplace la lumière vers le bas"/>
-            <text name="input_changeHeightF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche haut et bas."/>
+            <text name="input_changeStepSize" text="T93 PLP: Changer la taille de l&apos;étape de réglage de la hauteur de la lampe"/>
+            <text name="input_changeHeightUp" text="T93 PLP: Déplace la lumière vers le haut"/>
+            <text name="input_changeHeightDown" text="T93 PLP: Déplace la lumière vers le bas"/>
+            <text name="input_changeHeightF1" text="T93 PLP: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche haut et bas."/>
 
             <!-- Brightness -->
-            <text name="input_changeBrightnessUp" text="T93 Paquet de lumières pouvant être placé: Augmente la luminosité de la lumière."/>
-            <text name="input_changeBrightnessDown" text="T93 Paquet de lumières pouvant être placé: Diminuer la luminosité de la lumière."/>
-            <text name="input_changeBrightnessF1" text="T93 Paquet de lumières pouvant être placé: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche de luminosité d&apos;augmentation et de diminution."/>
+            <text name="input_changeBrightnessUp" text="T93 PLP: Augmente la luminosité de la lumière."/>
+            <text name="input_changeBrightnessDown" text="T93 PLP: Diminuer la luminosité de la lumière."/>
+            <text name="input_changeBrightnessF1" text="T93 PLP: Touche fictive, pour un menu d&apos;aide moins encombré. Réglez à la fois la touche de luminosité d&apos;augmentation et de diminution."/>
 
             <!-- Rotation -->
-            <text name="input_changeRotationRight" text="T93 Paquet de lumières pouvant être placé: Tourner vers la droite."/>
-            <text name="input_changeRotationLeft" text="T93 Paquet de lumières pouvant être placé: tourner vers la gauche."/>
-            <text name="input_changeRotationF1" text="T93 Paquet de lumières pouvant être placé: Bouton fictif, pour un menu d'aide moins pollué. Réglez à la fois à gauche et à droite pour faire pivoter."/>
+            <text name="input_changeRotationRight" text="T93 PLP: Tourner vers la droite."/>
+            <text name="input_changeRotationLeft" text="T93 PLP: tourner vers la gauche."/>
+            <text name="input_changeRotationF1" text="T93 PLP: Bouton fictif, pour un menu d'aide moins pollué. Réglez à la fois à gauche et à droite pour faire pivoter."/>
+            <text name="input_changeRotationStepSize" text="T93 PLP: Changer la taille de la rotation." />
 
         <!-- In-game text -->
             <!-- Individual -->
             <text name="button_changeBrightness" text="Augmenter/diminuer la luminosité"/>
+            <text name="button_alignToGround" text="Aligner sur le sol: %s" />
+            <text name="button_alignToGround_yes" text="Oui" />
+            <text name="button_alignToGround_no" text="Non" />
+            <text name="require_admin_rights" text="Les droits d'administrateur sont nécessaires pour modifier les paramètres de la lampe!" />
 
             <!-- Behavior -->
             <text name="button_lightBehavior" text="Comportement actuel: %s"/>
